@@ -3471,33 +3471,6 @@
     console.log('%c📊 20+ Features: Dashboard, Analytics, Users, ID Cards, Groups, Codes, Chat, Broadcast, Scheduled Messages, Auto Reply, Stories, Media, Stickers, Notifications, Reports, Word Filter, Banned, Backup, Theme, Student Preview, Settings, Logs', 'color: #2ED573;');
     console.log('%c👻 Ghost Mode | 📄 Export PDF/Excel | 🔔 Notification Center | 🎨 5 Themes | ⏰ Scheduled Messages | 🤖 Auto Reply Bot', 'color: #1E90FF;');
     console.log('%c⌨️ Shortcuts: Ctrl+1-9 | Esc to close', 'color: #FFA502;');
-        // 🔥🔥🔥 Service Worker for PWA
-    if ('serviceWorker' in navigator) {
-        var swCode = "self.addEventListener('install', function(e) { self.skipWaiting(); }); self.addEventListener('activate', function(e) { e.waitUntil(clients.claim()); }); self.addEventListener('fetch', function(e) { e.respondWith(fetch(e.request).catch(function() { return caches.match(e.request); })); });";
-        var blob = new Blob([swCode], {type: 'application/javascript'});
-        var swUrl = URL.createObjectURL(blob);
-        navigator.serviceWorker.register(swUrl).then(function() {
-            console.log('✅ Service Worker Registered');
-        }).catch(function() {});
-    }
-
-    // 🔥 Install Prompt
-    var installPrompt = null;
-    window.addEventListener('beforeinstallprompt', function(e) {
-        e.preventDefault();
-        installPrompt = e;
-        
-        setTimeout(function() {
-            if (installPrompt && !window.matchMedia('(display-mode: standalone)').matches) {
-                var btn = document.createElement('button');
-                btn.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--gold-gradient);color:#000;border:none;padding:14px 28px;border-radius:30px;font-weight:bold;z-index:9999;cursor:pointer;';
-                btn.textContent = '📲 تثبيت لوحة الأدمن';
-                btn.onclick = function() { installPrompt.prompt(); installPrompt = null; btn.remove(); };
-                document.body.appendChild(btn);
-                setTimeout(function() { if (btn.parentNode) btn.remove(); }, 15000);
-            }
-        }, 3000);
-    });
 </script>
 </body>
 </html>
