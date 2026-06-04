@@ -4,21 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
-    <!-- 🔥 PWA Meta Tags -->
-    <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="EduChat Admin">
-    
-    <!-- 🔥 App Icons -->
-    <link rel="icon" href="https://i.ibb.co/9msttCbY/unnamed.webp" type="image/webp">
-    <link rel="apple-touch-icon" href="https://i.ibb.co/9msttCbY/unnamed.webp">
-    <link rel="apple-touch-icon" sizes="192x192" href="https://i.ibb.co/9msttCbY/unnamed.webp">
-    <link rel="apple-touch-icon" sizes="512x512" href="https://i.ibb.co/9msttCbY/unnamed.webp">
-    
-    <!-- 🔥 PWA Manifest -->
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkVkdUNoYXQgQWRtaW4iLAogICJzaG9ydF9uYW1lIjogIkVkdUNoYXQiLAogICJkZXNjcmlwdGlvbiI6ICLYp9mE2YLYuNmK2YYg2KfZhNiz2KfYqNmKLSBFZHVDaGF0IFBybyIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMEEwQTBGIiwKICAidGhlbWVfY29sb3IiOiAiI0ZGQzEwNyIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiaWNvbnMiOiBbCiAgICB7InNyYyI6ICJodHRwczovL2kuaWJiLmNvLzl tc3R0Q2JZL3VubmFtZWQud2 VicCIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2Uvd2 VicCIsICJwdXJwb3NlIjogImFueSJ9LAogICAgeyJzcmMiOiAiaHR0cHM6Ly9pLmliYi5jby85bXN0dENiWS91bm5hbWVkLndlYnAiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3dlYnAiLCAicHVycG9zZSI6ICJhbnkifQogIF0KfQ==">
-        <!-- 🔥 PWA كامل -->
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -30,11 +15,13 @@
     <link rel="apple-touch-icon" sizes="152x152" href="https://i.ibb.co/9msttCbY/unnamed.webp">
     <link rel="apple-touch-icon" sizes="167x167" href="https://i.ibb.co/9msttCbY/unnamed.webp">
     <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/9msttCbY/unnamed.webp">
+    <link rel="apple-touch-icon" sizes="192x192" href="https://i.ibb.co/9msttCbY/unnamed.webp">
+    <link rel="apple-touch-icon" sizes="512x512" href="https://i.ibb.co/9msttCbY/unnamed.webp">
     
     <link rel="manifest" id="pwaManifest">
+    
     <title>لوحة الأدمن | EduChat Pro 🔥</title>
     
-    <!-- 🔥 Firebase & Libraries -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
@@ -3488,7 +3475,7 @@
     });
 
     // ========== Init ==========
-    console.log('%c🛡️ Admin Panel v13 ULTIMATE - Fully Featured | Web Egypt 2026 🔥', 'color: #FFC107; font-size: 18px;');
+    console.log('%c🛡️ EduChat Pro Admin | All Systems GO! 🔥', 'color: #FFC107; font-size: 18px;');
     console.log('%c📊 20+ Features: Dashboard, Analytics, Users, ID Cards, Groups, Codes, Chat, Broadcast, Scheduled Messages, Auto Reply, Stories, Media, Stickers, Notifications, Reports, Word Filter, Banned, Backup, Theme, Student Preview, Settings, Logs', 'color: #2ED573;');
     console.log('%c👻 Ghost Mode | 📄 Export PDF/Excel | 🔔 Notification Center | 🎨 5 Themes | ⏰ Scheduled Messages | 🤖 Auto Reply Bot', 'color: #1E90FF;');
     console.log('%c⌨️ Shortcuts: Ctrl+1-9 | Esc to close', 'color: #FFA502;');
@@ -3561,6 +3548,24 @@
             'self.addEventListener("fetch",function(e){})'
         )).catch(function() {});
     }
+        // ========== PWA Manifest ==========
+    (function() {
+        var manifest = {
+            name: 'EduChat Pro Admin',
+            short_name: 'EduChat Admin',
+            start_url: '.',
+            display: 'standalone',
+            background_color: '#0A0A0F',
+            theme_color: '#FFC107',
+            orientation: 'portrait',
+            icons: [
+                { src: 'https://i.ibb.co/9msttCbY/unnamed.webp', sizes: '192x192', type: 'image/webp', purpose: 'any' },
+                { src: 'https://i.ibb.co/9msttCbY/unnamed.webp', sizes: '512x512', type: 'image/webp', purpose: 'any' }
+            ]
+        };
+        var blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+        document.getElementById('pwaManifest').href = URL.createObjectURL(blob);
+    })();
 </script>
 </body>
 </html>
